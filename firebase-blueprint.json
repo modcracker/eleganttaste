@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "Dish": {
+      "title": "Chef Dish",
+      "description": "A single specialized dish designed by the culinary concierge.",
+      "type": "object",
+      "properties": {
+        "course": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "ingredients": { "type": "array", "items": { "type": "string" } },
+        "chefNotes": { "type": "string" }
+      },
+      "required": ["course", "name", "description", "ingredients", "chefNotes"]
+    },
+    "Pairing": {
+      "title": "Wine or Beverage Pairing",
+      "description": "The custom designed wine, vintage, or craft pairing.",
+      "type": "object",
+      "properties": {
+        "beverage": { "type": "string" },
+        "whyItWorks": { "type": "string" },
+        "temperature": { "type": "string" }
+      },
+      "required": ["beverage", "whyItWorks", "temperature"]
+    },
+    "CulinaryMenu": {
+      "title": "Bespoke Cuisine Menu",
+      "description": "An orchestrated culinary tasting menu.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "mood": { "type": "string" },
+        "dishes": { "type": "array", "items": { "$ref": "#/entities/Dish" } },
+        "pairing": { "$ref": "#/entities/Pairing" },
+        "estimatedPrepTime": { "type": "string" },
+        "chefMotto": { "type": "string" }
+      },
+      "required": ["title", "description", "mood", "dishes", "pairing", "estimatedPrepTime", "chefMotto"]
+    },
+    "SavedTasting": {
+      "title": "Saved Gourmet Tasting",
+      "description": "A customized menu element stored under the gourmet's private cellar.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "menu": { "$ref": "#/entities/CulinaryMenu" },
+        "personalNotes": { "type": "string" },
+        "rating": { "type": "integer" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "menu", "personalNotes", "rating", "createdAt"]
+    }
+  },
+  "firestore": {
+    "tastings/{tastingId}": {
+      "schema": "SavedTasting",
+      "description": "User's private vault of saved culinary tasting menus on eleganttaste.com."
+    }
+  }
+}

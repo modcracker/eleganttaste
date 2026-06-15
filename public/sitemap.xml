@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Primary Showcase -->
+  <url>
+    <loc>https://eleganttaste.com/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Portfolio View page -->
+  <url>
+    <loc>https://eleganttaste.com/#portfolio</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Contact Admin administrative page -->
+  <url>
+    <loc>https://eleganttaste.com/#contact</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- SEO Backstage - Gastronomy Leadership -->
+  <url>
+    <loc>https://eleganttaste.com/#seo-luxury-gastronomy</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- SEO Backstage - Michelin Catering Chemistry -->
+  <url>
+    <loc>https://eleganttaste.com/#seo-michelin-catering</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- SEO Backstage - Domain Appraisals & Valuations -->
+  <url>
+    <loc>https://eleganttaste.com/#seo-epic-brand-strategy</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- SEO Backstage - Conversational AI Chef Concierge -->
+  <url>
+    <loc>https://eleganttaste.com/#seo-domain-acquisitions</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

@@ -1,0 +1,6 @@
+{
+  "name": "Elegant Taste",
+  "description": "A premium private dining planner concept and domain showcase for eleganttaste.com.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,71 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Validation helper for tasting data
+    function isValidTasting(data) {
+      return data.keys().hasAll(['id', 'menu', 'personalNotes', 'rating', 'createdAt'])
+        && data.keys().size() == 5
+        && data.id is string
+        && data.id.size() <= 128
+        && data.personalNotes is string
+        && data.personalNotes.size() <= 2000
+        && data.rating is int
+        && data.rating >= 1
+        && data.rating <= 5
+        && data.createdAt is int
+        && data.menu is map
+        && data.menu.keys().hasAll(['title', 'description', 'mood', 'dishes', 'pairing', 'estimatedPrepTime', 'chefMotto'])
+        && data.menu.title is string
+        && data.menu.title.size() <= 200
+        && data.menu.description is string
+        && data.menu.description.size() <= 2000
+        && data.menu.mood is string
+        && data.menu.dishes is list
+        && data.menu.dishes.size() >= 1
+        && data.menu.dishes.size() <= 10
+        && data.menu.pairing is map
+        && data.menu.estimatedPrepTime is string
+        && data.menu.chefMotto is string;
+    }
+
+    // Rule for the tastings collection
+    match /tastings/{tastingId} {
+      allow get: if true; // anyone can view a linked elegant menu
+      allow list: if true; // allow lists for local display
+      
+      allow create: if isValidId(tastingId) 
+        && isValidTasting(incoming())
+        && incoming().id == tastingId;
+        
+      allow update: if isValidId(tastingId)
+        && isValidTasting(incoming())
+        && incoming().id == tastingId
+        && incoming().createdAt == existing().createdAt; // timestamp is immutable
+        
+      allow delete: if isValidId(tastingId);
+    }
+  }
+}
