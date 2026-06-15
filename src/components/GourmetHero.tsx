@@ -1,14 +1,15 @@
 import { motion } from "motion/react";
 import { ChevronDown, Sparkles } from "lucide-react";
 
+// @ts-expect-error - Vite resolves and bundles image assets perfectly at build time
+import heroImage from "../assets/images/dining_hero_1780722274282.png";
+
 interface GourmetHeroProps {
   onViewChange: (view: "home" | "portfolio" | "contact") => void;
   onScrollToCatalog: () => void;
 }
 
 export default function GourmetHero({ onViewChange, onScrollToCatalog }: GourmetHeroProps) {
-  // Beautiful luxury dining hero image
-  const heroImage = "/src/assets/images/dining_hero_1780722274282.png";
 
   return (
     <div id="gourmet_hero_section" className="relative h-[85vh] flex flex-col justify-between overflow-hidden">

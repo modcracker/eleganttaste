@@ -177,6 +177,17 @@ export default function App() {
             &copy; 2026 eleganttaste.com. Exclusive Brand Portfolio. All rights reserved.
           </p>
 
+          {/* Minimal Sitemap & Robots Index */}
+          <div className="flex justify-center items-center gap-3 text-[10px] text-neutral-400 font-mono">
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition-colors underline decoration-neutral-250">
+              sitemap.xml
+            </a>
+            <span className="text-neutral-200 select-none">&bull;</span>
+            <a href="/robots.txt" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition-colors underline decoration-neutral-250">
+              robots.txt
+            </a>
+          </div>
+
           {/* Big custom Feelize AI Bubble Link at the very bottom */}
           <div className="pt-2 flex justify-center">
             <a 
